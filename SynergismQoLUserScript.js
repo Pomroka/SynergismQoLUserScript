@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name         Synergism QoL
-// @namespace    http://tampermonkey.net/
+// @namespace    YanTovis
 // @version      0.1.2
 // @description  Some synergism QoL improvement
+// @updateURL    https://github.com/denesmet/SynergismQoLUserScript/blob/main/SynergismQoLUserScript.js
 // @author       YanTovis
 // @match        https://pseudonian.github.io/SynergismOfficial/
 // @grant        none
