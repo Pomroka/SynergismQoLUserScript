@@ -1,3 +1,4 @@
-# SynergismExportUserScript
-This script add button that will try to export your Synergism savegame using a different mechanism that might work in Waterfox Classic/Firefox 56.
-
+# SynergismQoLUserScript
+UserScript for Synergism - https://pseudonian.github.io/SynergismOfficial/
+Add to game more info.
+v0.1 adds number of challenges completed / max challenges under challenges selector buttons
