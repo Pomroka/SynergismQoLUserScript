@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Synergism QoL
 // @namespace    YanTovis
-// @version      0.1.3
+// @version      0.1.4
 // @description  Some synergism QoL improvement
 // @updateURL    https://github.com/denesmet/SynergismQoLUserScript/blob/main/SynergismQoLUserScript.js
 // @author       YanTovis
@@ -27,71 +27,133 @@ let challangesDisplay = (function () {
     document.getElementById("challengeDetails").style.top = "130px";
 })();
 
-let currentChallengeSelectd = function () {
-    var challengeSelected = document.getElementById("sartChallenge").childNodes[0].data;
+let replaceStartChallengeButton = function () {
+    var challengeSelected = document.getElementById("challengeName").childNodes[0].data;
     var challengeRunningT = player.currentChallenge.transcension;
     var challengeRunningR = player.currentChallenge.reincarnation;
     var challengeRunningA = player.currentChallenge.ascension;
-    if (challengeSelected === "Start [No Multipliers]" && challengeRunningT === 1){ 
-        challengeSelected = "Exit [No Multipliers";
-        document.getElementById("startChallenge").onclick = "resetCheck('challenge', null, true)"
-    }
-    if (challengeSelected === "Start [No Accelerators]" && challengeRunningT === 2) {
-        challengeSelected = "Exit [No Accelerators]";
-        document.getElementById("startChallenge").onclick = "resetCheck('challenge', null, true)"
-    }   
-    if (challengeSelected === "Start [No Shards" && challengeRunningT === 3) {
-        challengeSelected = "Exit [No Shards";
-        document.getElementById("startChallenge").onclick = "resetCheck('challenge', null, true)"
-    }
-    if (challengeSelected === "Start [Cost+]" && challengeRunningT === 4) {
-        challengeSelected = "Exit [Cost+]";
-        document.getElementById("startChallenge").onclick = "resetCheck('challenge', null, true)"
-    }
-    if (challengeSelected === "Start [Reduced Diamonds]" && challengeRunningT === 5) {
-        challengeSelected = "Exit [Reduced Diamonds]";
-        document.getElementById("startChallenge").onclick = "resetCheck('challenge', null, true)"
-    }
-    if (challengeSelected === "Start <Higher Tax>" && challengeRunningR === 6) {
-        challengeSelected = "Exit <Higher Tax>";
-        document.getElementById("startChallenge").onclick = "resetCheck('reincarnationchallenge', null, true)"
-    }
-    if (challengeSelected === "Start <No Multipliers/Accelerators>" && challengeRunningR === 7) {
-        challengeSelected = "Exit <No Multipliers/Accelerators>";
-        document.getElementById("startChallenge").onclick = "resetCheck('reincarnationchallenge', null, true)"
-    }
-    if (challengeSelected === "Start <Cost++>" && challengeRunningR === 8) {
-        challengeSelected = "Exit <Cost++>";
-        document.getElementById("startChallenge").onclick = "resetCheck('reincarnationchallenge', null, true)"
-    }
-    if (challengeSelected === "Start <No Runes>" && challengeRunningR === 9) {
-        challengeSelected = "Exit <No Runes>";
-        document.getElementById("startChallenge").onclick = "resetCheck('reincarnationchallenge', null, true)"
-    }
-    if (challengeSelected === "Start <Sadistic I>" && challengeRunningR === 10) {
-        challengeSelected = "Exit <Sadistic I>";
-        document.getElementById("startChallenge").onclick = "resetCheck('reincarnationchallenge', null, true)"
-    }
-    if (challengeSelected === "Start <[(Reduced Ants)]>" && challengeRunningA === 11) {
-        challengeSelected = "Exit <[(Reduced Ants)]>";
-        document.getElementById("startChallenge").onclick = "resetCheck('ascensionChallenge')"
-    }
-    if (challengeSelected === "Start <[(No Reincarnation)]>" && challengeRunningA === 12) {
-        challengeSelected = "Exit <[(No Reincarnation)]>"
-        document.getElementById("startChallenge").onclick = "resetCheck('ascensionChallenge')"
-    };
-    if (challengeSelected === "Start <[(Tax+++)]>" && challengeRunningA === 13) {
-        challengeSelected = "Exit <[(Tax++ +)]>"
-        document.getElementById("startChallenge").onclick = "resetCheck('ascensionChallenge')"
-    };
-    if (challengeSelected === "Start <[(No Research)]>" && challengeRunningA === 14) {
-        challengeSelected = "Exit <[(No Research)]>";
-        document.getElementById("startChallenge").onclick = "resetCheck('ascensionChallenge')"
-    }
-    if (challengeSelected === "Start <[(Sadistic Challenge II)]>" && challengeRunningA === 15) {
-        challengeSelected = "Exit <[(Sadistic Challenge II)]>";
-        document.getElementById("startChallenge").onclick = "resetCheck('ascensionChallenge')"
-    }
+
+    if (challengeSelected.includes("No Multipliers Challenge"))
+        if(challengeRunningT === 1){ 
+            document.getElementById("startChallenge").childNodes[0].data = "Exit [No Multipliers";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('challenge', null, true)");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start [No Multipliers";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("No Accelerators Challenge"))
+        if (challengeRunningT === 2) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit [No Accelerators]";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('challenge', null, true)");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start [No Accelerators]";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("No Shards Challenge"))
+        if (challengeRunningT === 3) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit [No Shards";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('challenge', null, true)");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start [No Shards";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("Cost+ Challenge"))
+        if (challengeRunningT === 4) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit [Cost+]";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('challenge', null, true)");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start [Cost+]";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("Reduced Diamonds Challenge"))
+        if (challengeRunningT === 5) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit [Reduced Diamonds]";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('challenge', null, true)");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start [Reduced Diamonds]";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("Higher Tax Challenge"))
+        if (challengeRunningR === 6) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit <Higher Tax>";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('reincarnationchallenge', null, true)");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start <Higher Tax>";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("No Multipliers/Accelerators Challenge"))
+        if (challengeRunningR === 7) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit <No Multipliers/Accelerators>";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('reincarnationchallenge', null, true)");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start <No Multipliers/Accelerators>";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("Cost++ Challenge"))
+        if (challengeRunningR === 8) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit <Cost++>";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('reincarnationchallenge', null, true)");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start <Cost++>";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("No Runes Challenge"))
+        if (challengeRunningR === 9) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit <No Runes>";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('reincarnationchallenge', null, true)");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start <No Runes>";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("Sadistic Challenge I"))
+        if (challengeRunningR === 10) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit <Sadistic I>";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('reincarnationchallenge', null, true)");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start <Sadistic I>";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("Reduced Ants Challenge"))
+        if (challengeRunningA === 11) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit <[(Reduced Ants)]>";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('ascensionChallenge')");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start <[(Reduced Ants)]>";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("No Reincarnation Challenge"))
+        if (challengeRunningA === 12) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit <[(No Reincarnation)]>";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('ascensionChallenge')");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start <[(No Reincarnation)]>";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("Tax+++ Challenge"))
+        if (challengeRunningA === 13) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit <[(Tax++ +)]>";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('ascensionChallenge')");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start <[(Tax++ +)]>";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("No Research Challenge"))
+        if (challengeRunningA === 14) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit <[(No Research)]>";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('ascensionChallenge')");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start <[(No Research)]>";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    if (challengeSelected.includes("SADISTIC CHALLENGE II"))
+        if (challengeRunningA === 15) {
+            document.getElementById("startChallenge").childNodes[0].data = "Exit <[(Sadistic Challenge II)]>";
+            document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('ascensionChallenge')");
+        } else {
+            document.getElementById("startChallenge").childNodes[0].data = "Start <[(Sadistic Challenge II)]>";
+            document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
+        }
+    
 }
 
 let challengesUpdate = function () {
@@ -106,7 +168,7 @@ let challengesUpdate = function () {
         else td.style.color = "white";
         td.textContent = challCompletion[i] + " / " + maxCh;
     }
-
+    replaceStartChallengeButton();
 }
 window.handleChallUpdate = setInterval(challengesUpdate, 1000);
 
