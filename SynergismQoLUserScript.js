@@ -26,6 +26,7 @@ let challangesDisplay = (function () {
     chTabl.appendChild(tr);
     document.getElementById("challengeDetails").style.top = "130px";
 })();
+
 let challengesUpdate = function () {
     var challCompletion = player.challengecompletions;
     for (var i = 1; i < challCompletion.length; i++) {
@@ -38,6 +39,7 @@ let challengesUpdate = function () {
         else td.style.color = "white";
         td.textContent = challCompletion[i] + " / " + maxCh;
     }
+    
 }
 window.handleChallUpdate = setInterval(challengesUpdate, 1000);
 
