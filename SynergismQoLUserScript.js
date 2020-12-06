@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Synergism QoL
 // @namespace    YanTovis
-// @version      0.1.5
+// @version      0.1.6
 // @description  Some synergism QoL improvement
-// @updateURL    https://github.com/denesmet/SynergismQoLUserScript/blob/main/SynergismQoLUserScript.js
+// @updateURL    https://raw.githubusercontent.com/denesmet/SynergismQoLUserScript/main/SynergismQoLUserScript.js
 // @author       YanTovis
 // @match        https://pseudonian.github.io/SynergismOfficial/
 // @grant        none
@@ -15,6 +15,7 @@ let challangesDisplay = (function () {
     tr.setAttribute("id", "challengeCompletions");
     tr.style.fontSize = "14px";
     tr.style.textAlign = "center";
+    tr.style.letterSpacing = "-0.06em";
 
     var challCompletion = player.challengecompletions;
 
@@ -35,7 +36,7 @@ let replaceStartChallengeButton = function () {
 
     if (challengeSelected.includes("No Multipliers Challenge"))
         if(challengeRunningT === 1){ 
-            document.getElementById("startChallenge").childNodes[0].data = "Exit [No Multipliers";
+            document.getElementById("startChallenge").childNodes[0].data = "Exit [No Multipliers]";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('challenge', null, true)");
             document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
         } else {
