@@ -38,151 +38,151 @@ let replaceStartChallengeButton = function () {
         if(challengeRunningT === 1){ 
             document.getElementById("startChallenge").childNodes[0].data = "Exit [No Multipliers]";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('challenge', null, true)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
-            document.getElementById("startChallenge").childNodes[0].data = "Start [No Multipliers";
+            document.getElementById("startChallenge").childNodes[0].data = "Start [No Multipliers]";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("No Accelerators Challenge"))
         if (challengeRunningT === 2) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit [No Accelerators]";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('challenge', null, true)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start [No Accelerators]";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("No Shards Challenge"))
         if (challengeRunningT === 3) {
-            document.getElementById("startChallenge").childNodes[0].data = "Exit [No Shards";
+            document.getElementById("startChallenge").childNodes[0].data = "Exit [No Shards]";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('challenge', null, true)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
-            document.getElementById("startChallenge").childNodes[0].data = "Start [No Shards";
+            document.getElementById("startChallenge").childNodes[0].data = "Start [No Shards]";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("Cost+ Challenge"))
         if (challengeRunningT === 4) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit [Cost+]";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('challenge', null, true)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start [Cost+]";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("Reduced Diamonds Challenge"))
         if (challengeRunningT === 5) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit [Reduced Diamonds]";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('challenge', null, true)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start [Reduced Diamonds]";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("Higher Tax Challenge"))
         if (challengeRunningR === 6) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit <Higher Tax>";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('reincarnationchallenge', null, true)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start <Higher Tax>";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("No Multipliers/Accelerators Challenge"))
         if (challengeRunningR === 7) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit <No Multipliers/Accelerators>";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('reincarnationchallenge', null, true)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start <No Multipliers/Accelerators>";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("Cost++ Challenge"))
         if (challengeRunningR === 8) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit <Cost++>";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('reincarnationchallenge', null, true)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start <Cost++>";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("No Runes Challenge"))
         if (challengeRunningR === 9) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit <No Runes>";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('reincarnationchallenge', null, true)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start <No Runes>";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("Sadistic Challenge I"))
         if (challengeRunningR === 10) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit <Sadistic I>";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('reincarnationchallenge', null, true)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start <Sadistic I>";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("Reduced Ants Challenge"))
         if (challengeRunningA === 11) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit <[(Reduced Ants)]>";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('ascensionChallenge')");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start <[(Reduced Ants)]>";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("No Reincarnation Challenge"))
         if (challengeRunningA === 12) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit <[(No Reincarnation)]>";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('ascensionChallenge')");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start <[(No Reincarnation)]>";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("Tax+++ Challenge"))
         if (challengeRunningA === 13) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit <[(Tax++ +)]>";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('ascensionChallenge')");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start <[(Tax++ +)]>";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("No Research Challenge"))
         if (challengeRunningA === 14) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit <[(No Research)]>";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('ascensionChallenge')");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start <[(No Research)]>";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     if (challengeSelected.includes("SADISTIC CHALLENGE II"))
         if (challengeRunningA === 15) {
             document.getElementById("startChallenge").childNodes[0].data = "Exit <[(Sadistic Challenge II)]>";
             document.getElementById("startChallenge").setAttribute("onClick", "resetCheck('ascensionChallenge')");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: plum;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: plum; color: darkmagenta;");
         } else {
             document.getElementById("startChallenge").childNodes[0].data = "Start <[(Sadistic Challenge II)]>";
             document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111;");
+            document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
         }
     
 }
@@ -194,6 +194,7 @@ let challengesUpdate = function () {
         var td = document.getElementById("challengeCompletions").childNodes[i - 1]
         if (i < 6) maxCh = 25 + 5 * player.researches[66] + 925 * player.researches[105];
         else if (i > 5 && i <= 10) maxCh = 25 + 5 * player.cubeUpgrades[29] + 2 * player.shopUpgrades.challengeExtension + 5 * player.platonicUpgrades[5] + 5 * player.platonicUpgrades[10] + 10 * player.platonicUpgrades[15];
+        else if (i == 15) maxCh = 9001;
         else maxCh = 30 + 3 * player.platonicUpgrades[5] + 3 * player.platonicUpgrades[10] + 4 * player.platonicUpgrades[15];
         if (challCompletion[i] == maxCh) td.style.color = "limegreen";
         else td.style.color = "white";
