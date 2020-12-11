@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Synergism QoL
 // @namespace    YanTovis
-// @version      0.1.9
+// @version      0.1.9.1
 // @description  Some synergism QoL improvement
 // @updateURL    https://github.com/Pomroka/SynergismQoLUserScript/raw/main/SynergismQoL.user.js
 // @author       YanTovis
@@ -83,9 +83,9 @@
         replaceStartChallengeButton();
     }
 
+    challangesDisplay();
     let updateChallengesInterval = 0;
     let startUpdate = () => {
-        challangesDisplay();
         updateChallengesInterval = setInterval(challengesUpdate, 100);
     }
     let stopUpdate = () => {
