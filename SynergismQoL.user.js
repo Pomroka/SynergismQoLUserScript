@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Synergism QoL
 // @namespace    YanTovis
-// @version      0.1.8
+// @version      0.1.8.1
 // @description  Some synergism QoL improvement
-// @updateURL    https://raw.githubusercontent.com/denesmet/SynergismQoLUserScript/main/SynergismQoLUserScript.js
+// @updateURL    https://github.com/Pomroka/SynergismQoLUserScript/raw/main/SynergismQoL.user.js
 // @author       YanTovis
 // @match        https://pseudonian.github.io/SynergismOfficial/
 // @grant        none
@@ -45,7 +45,7 @@
             if (i < 6) event = "resetCheck('challenge', null, true)";
             if (5 < i && i < 11) event = "resetCheck('reincarnationchallenge', null, true)";
             if (i > 10) event = "resetCheck('ascensionChallenge')";
-            if (challengeSelected.includes(chall.replace(/[\[\]\(\)\<\>I]+/g, ""))){
+            if (challengeSelected.includes(chall.replace(/[\[\]\(\)\<\>I]+/g, "") + " ")){
                 if (i == 15) chall = "<[(Sadistic Challenge II)]>";
                 if (challengeRunning === i){
                     document.getElementById("startChallenge").childNodes[0].data = "Exit " + chall;
@@ -83,6 +83,6 @@
         replaceStartChallengeButton();
     }
     challangesDisplay();
-    window.handleChallUpdate = setInterval(challengesUpdate, 1000);
+    window.handleChallUpdate = setInterval(challengesUpdate, 100);
 
 })();
