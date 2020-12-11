@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Synergism QoL
 // @namespace    YanTovis
-// @version      0.1.8.1
+// @version      0.1.9
 // @description  Some synergism QoL improvement
 // @updateURL    https://github.com/Pomroka/SynergismQoLUserScript/raw/main/SynergismQoL.user.js
 // @author       YanTovis
@@ -55,13 +55,13 @@
                 } else {
                     document.getElementById("startChallenge").childNodes[0].data = "Start " + chall;
                     document.getElementById("startChallenge").setAttribute("onClick", "toggleChallenges(triggerChallenge, false)");
-                    document.getElementById("startChallenge").setAttribute("style", "background-color: #111111; color: white;");
+                    document.getElementById("startChallenge").setAttribute("style", "background-color: null; color: white;");
                     document.getElementById("challenge" + i).style.backgroundColor = "green";
                 }
             }
             else {
                 if (challengeRunning != i){
-                    document.getElementById("challenge" + i).style.backgroundColor = "#111111";
+                    document.getElementById("challenge" + i).style.backgroundColor = null;
                 }
             }
         }
@@ -82,7 +82,36 @@
         }
         replaceStartChallengeButton();
     }
-    challangesDisplay();
-    window.handleChallUpdate = setInterval(challengesUpdate, 100);
+
+    let updateChallengesInterval = 0;
+    let startUpdate = () => {
+        challangesDisplay();
+        updateChallengesInterval = setInterval(challengesUpdate, 100);
+    }
+    let stopUpdate = () => {
+        clearInterval(updateChallengesInterval);
+    }
+
+    const tabsId = ['buildingstab', 'upgradestab', 'settingstab', 'achievementstab', 'runestab', 'challengetab', 
+                    'researchtab', 'shoptab', 'anttab', 'cubetab', 'traitstab'];
+    const tabsEvents = ['buildings', 'upgrades', 'settings', 'achievements', 'runes', 'challenges', 
+                    'researches', 'shop', 'ants', 'cubes', 'traits'];
+
+    for (let i = 0; i < tabsId.length; i++) {
+        const tabId = tabsId[i];
+        const tabEvent = tabsEvents[i];
+        if (tabEvent == 'challenges') {
+            document.getElementById(tabId).onclick = event => {
+                toggleTabs(tabEvent);
+                startUpdate();
+            }
+        } else {
+            document.getElementById(tabId).onclick = event => {
+                toggleTabs(tabEvent);
+                stopUpdate();
+            }
+        }
+    }
+
 
 })();
