@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Synergism QoL
 // @namespace    YanTovis
-// @version      0.2.0
+// @version      0.2.1
 // @description  Some synergism QoL improvement
 // @updateURL    https://github.com/Pomroka/SynergismQoLUserScript/raw/main/SynergismQoL.user.js
 // @author       YanTovis
@@ -64,7 +64,7 @@
 
         const startChallengesBtnTxt = ["", "[No Multipliers]", "[No Accelerators]", "[No Shards]", "[Cost+]", "[Reduced Diamonds]",
             "<Higher Tax>", "<No Multipliers/Accelerators>", "<Cost++>", "<No Runes>", "<Sadistic I>",
-            "<[(Reduced Ants)]>", "<[(No Reincarnation)]>", "<[(Tax+++)]>", "<[(No Research)]>", "Start <[(Sadistic Challenge II)]>"];
+            "<[(Reduced Ants)]>", "<[(No Reincarnation)]>", "<[(Tax+++)]>", "<[(No Research)]>", "<[(Sadistic Challenge II)]>"];
 
         let startChallengeBtnTxt = 'Start ' + startChallengesBtnTxt[i];
         let running = false;
@@ -81,7 +81,7 @@
         document.getElementById("startChallenge").onclick = event => { startChallengeEvent(i, running) };
         document.getElementById("startChallenge").setAttribute("style", startBtnStyle);
         document.getElementById("challenge" + i).style.backgroundColor = challengeIconStyle;
-        
+
         for (let j = 1; j < startChallengesBtnTxt.length; j++) {
             if (j != i && !challengeRunning.includes(j)) {
                 document.getElementById("challenge" + j).style.backgroundColor = null;
