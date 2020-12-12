@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Synergism QoL
 // @namespace    YanTovis
-// @version      0.2.1
+// @version      0.2.2
 // @description  Some synergism QoL improvement
 // @updateURL    https://github.com/Pomroka/SynergismQoLUserScript/raw/main/SynergismQoL.user.js
 // @author       YanTovis
@@ -89,9 +89,10 @@
         }
     }
 
-    function challengesUpdate() {
+    function challengesUpdate(force = false) {
         let challengeRunning = player.currentChallenge.transcension + player.currentChallenge.reincarnation + player.currentChallenge.ascension;
-        if (challengeRunning > 0) {
+
+        if (challengeRunning > 0 || force) {
             let challengeCompletion = player.challengecompletions;
             for (let i = 1; i < challengeCompletion.length; i++) {
                 let maxCh = 0;
@@ -126,7 +127,7 @@
         if (tabEvent == 'challenges') {
             document.getElementById(tabId).onclick = event => {
                 toggleTabs(tabEvent);
-                challengesUpdate();
+                challengesUpdate(true);
                 startUpdate();
             }
         } else {
