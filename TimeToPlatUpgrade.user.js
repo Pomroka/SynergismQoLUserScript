@@ -12,24 +12,26 @@
 // time to one level of a plat upgrade for Synergism v2.1.1 by lulu
 // Usage: paste in the console, call the function getCubeTimes(). defaults to alpha but can be used to find any upgrade and levels by doing getCubeTimes(upgrade,level)
 
+/*jshint esversion: 6 */
+
 window.SplitTime = (numberOfHours) => {
     let Days = Math.floor(numberOfHours / 24);
     let Remainder = numberOfHours % 24;
     let Hours = Math.floor(Remainder);
     let Minutes = Math.floor(60 * (Remainder - Hours));
     return ({"Days" : Days, "Hours" : Hours, "Minutes" : Minutes});
-}
+};
 
 window.getCubeTimes = (i = 5, levels = 1) => {
     let x = CalcCorruptionStuff();
-    let tess = x[5]
-    let hyper = x[6]
-    let plat = x[7]
-    let Upgrades = platUpgradeBaseCosts[i]
-    let tessCost = Upgrades.tesseracts * levels
-    let hyperCost = Upgrades.hypercubes * levels
-    let platCost = Upgrades.platonics * levels
-    let time = player.ascensionCounter / 3600 / 24
+    let tess = x[5];
+    let hyper = x[6];
+    let plat = x[7];
+    let Upgrades = platUpgradeBaseCosts[i];
+    let tessCost = Upgrades.tesseracts * levels;
+    let hyperCost = Upgrades.hypercubes * levels;
+    let platCost = Upgrades.platonics * levels;
+    let time = player.ascensionCounter / 3600 / 24;
     let platRate = plat / time;
     let hyperRate = hyper / time;
     let tessRate = tess / time;
@@ -56,5 +58,5 @@ window.getCubeTimes = (i = 5, levels = 1) => {
     console.log("Leftovers after " + [totalTimeNeeded.toPrecision(4)] + " days:\n" +
                 "Platonics: " + [(player.wowPlatonicCubes + plat + platRate * totalTimeNeeded - platCost).toPrecision(4)] + " \n" +
                 "Hypers: " + [(player.wowHypercubes + hyper + hyperRate * totalTimeNeeded - hyperCost).toPrecision(4)] + " \n" +
-                "Tesseracts: " + [(player.wowTesseracts + tess + tessRate * totalTimeNeeded - tessCost).toPrecision(4)])
-}
+                "Tesseracts: " + [(player.wowTesseracts + tess + tessRate * totalTimeNeeded - tessCost).toPrecision(4)]);
+};

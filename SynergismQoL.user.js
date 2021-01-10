@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Synergism QoL
 // @namespace    YanTovis
-// @version      0.2.2
+// @version      0.2.2.1
 // @description  Some synergism QoL improvement
 // @updateURL    https://github.com/Pomroka/SynergismQoLUserScript/raw/main/SynergismQoL.user.js
 // @author       YanTovis
@@ -9,7 +9,9 @@
 // @grant        none
 // ==/UserScript==
 
-(function () {
+/*jshint esversion: 6 */
+
+(function() {
     function challengesDisplay() {
         let chTabl = document.getElementById("challengeIcons").firstElementChild;
         let tr = document.createElement("tr");
@@ -31,29 +33,31 @@
             };
         }
         chTabl.appendChild(tr);
-        document.getElementById("challengeDetails").style.top = "130px";
+        document.getElementById("challengeDetails").style.top = "150px";
     }
 
     let updateChallengesInterval = 0;
+
     function startUpdate() {
         updateChallengesInterval = setInterval(challengesUpdate, 100);
     }
+
     function stopUpdate() {
         clearInterval(updateChallengesInterval);
     }
 
-    function startChallengeEvent (i, running) {
-        if (running){
-            if (i < 6){
+    function startChallengeEvent(i, running) {
+        if (running) {
+            if (i < 6) {
                 resetCheck('challenge', null, true);
             }
-            if (5 < i && i < 11){
+            if (5 < i && i < 11) {
                 resetCheck('reincarnationchallenge', null, true);
             }
-            if (i > 10){
+            if (i > 10) {
                 resetCheck('ascensionChallenge');
             }
-        } else{
+        } else {
             toggleChallenges(triggerChallenge, false);
         }
         replaceStartChallengeButton(i);
@@ -64,7 +68,8 @@
 
         const startChallengesBtnTxt = ["", "[No Multipliers]", "[No Accelerators]", "[No Shards]", "[Cost+]", "[Reduced Diamonds]",
             "<Higher Tax>", "<No Multipliers/Accelerators>", "<Cost++>", "<No Runes>", "<Sadistic I>",
-            "<[(Reduced Ants)]>", "<[(No Reincarnation)]>", "<[(Tax+++)]>", "<[(No Research)]>", "<[(Sadistic Challenge II)]>"];
+            "<[(Reduced Ants)]>", "<[(No Reincarnation)]>", "<[(Tax+++)]>", "<[(No Research)]>", "<[(Sadistic Challenge II)]>"
+        ];
 
         let startChallengeBtnTxt = 'Start ' + startChallengesBtnTxt[i];
         let running = false;
@@ -116,10 +121,12 @@
 
     challengesDisplay();
 
-    const tabsId = ['buildingstab', 'upgradestab', 'settingstab', 'achievementstab', 'runestab', 'challengetab', 
-                    'researchtab', 'shoptab', 'anttab', 'cubetab', 'traitstab'];
-    const tabsEvents = ['buildings', 'upgrades', 'settings', 'achievements', 'runes', 'challenges', 
-                    'researches', 'shop', 'ants', 'cubes', 'traits'];
+    const tabsId = ['buildingstab', 'upgradestab', 'settingstab', 'achievementstab', 'runestab', 'challengetab',
+        'researchtab', 'shoptab', 'anttab', 'cubetab', 'traitstab'
+    ];
+    const tabsEvents = ['buildings', 'upgrades', 'settings', 'achievements', 'runes', 'challenges',
+        'researches', 'shop', 'ants', 'cubes', 'traits'
+    ];
 
     for (let i = 0; i < tabsId.length; i++) {
         const tabId = tabsId[i];
