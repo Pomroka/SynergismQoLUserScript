@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Synergism Time to 1e12 Diamonds
 // @namespace    YanTovis
-// @version      0.3.1
+// @version      0.3.2
 // @description  Show in console last 10 prestige using real time and time to get 1e12 diamonds.
 // @updateURL    https://github.com/Pomroka/SynergismQoLUserScript/raw/main/SynergismTimeTo1e12.user.js
 // @author       YanTovis
@@ -10,6 +10,9 @@
 // ==/UserScript==
 
 /*jshint esversion: 6 */
+
+/* Usage - in browser console type: timeTo1e12Diamonds() 
+You can change default 10s time to calculate diamond rate: timeTo1e12Diamonds(time_in_seconds)  */
 
 window.timeTo1e12Diamonds = (waitTime = 10) => {
   let resetHistory = player.history.reset;
@@ -48,7 +51,7 @@ window.timeTo1e12Diamonds = (waitTime = 10) => {
     if (secTo1e12 >= 24 * 3600) {
       strTo1e12 = `${Math.floor(secTo1e12 / (24 * 3600))}day ${strTo1e12}`;
     }
-    atTime = new Date(Date.now() + secTo1e12 * 1000).toLocaleString("pl-PL");
+    atTime = new Date(Date.now() + secTo1e12 * 1000).toLocaleString();
     console.log(
       `Average rate after ${waitTime} seconds: ${dRate.toExponential(3)} d/s`
     );
