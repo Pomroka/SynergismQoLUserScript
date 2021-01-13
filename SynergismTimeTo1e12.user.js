@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Synergism Time to 1e12 Diamonds
 // @namespace    YanTovis
-// @version      0.2
+// @version      0.3
 // @description  Show in console last 10 prestige using real time and time to get 1e12 diamonds.
 // @updateURL    https://github.com/Pomroka/SynergismQoLUserScript/raw/main/SynergismTimeTo1e12.user.js
 // @author       YanTovis
@@ -11,7 +11,7 @@
 
 /*jshint esversion: 6 */
 
-window.timeTo1e12Diamonds = () => {
+window.timeTo1e12Diamonds = (waitTime = 10) => {
   let resetHistory = player.history.reset;
   let diamonds = 0;
   let prestigesTime = 0;
@@ -22,31 +22,34 @@ window.timeTo1e12Diamonds = () => {
       parseFloat(resetHistory[i].seconds) / calculateTimeAcceleration();
 
     console.log(
-      `\tPrestige Time: ${pT.toFixed(3)}  seconds | Diamonds: ${
-        d.toExponential(3)} | Rate: ${(d / pT).toExponential(3)} d/s`
+      `\tPrestige Time: ${pT.toFixed(3)}  seconds | Diamonds: ${d.toExponential(3)} | Rate: ${(d / pT).toExponential(3)} d/s`
     );
     diamonds += d;
     prestigesTime += pT;
   }
-  const currentDiamonds = player.prestigePoints.toExponential();
+  const diamondsStart = player.prestigePoints.toExponential();
 
   console.log(
     `Average from last ${resetHistory.length} resets: ${(
       diamonds / prestigesTime
     ).toExponential(3)} d/s`
   );
-  let to1e12 = ((1e12 - currentDiamonds) * prestigesTime) / diamonds;
 
-  atTime = Date.now() + to1e12 * 1000;
-  atTime = new Date(atTime).toISOString();
-  strTo1e12 = new Date(to1e12 * 1000).toISOString().substr(11, 8);
-  if (to1e12 >= 24 * 3600) {
-    strTo1e12 = `${Math.floor(to1e12 / (24 * 3600))}day ${strTo1e12}`;
-  }
-
-  console.log("Time left to 1e12 Diamonds: " + strTo1e12);
-  console.log(
-    `At your current rate, you are expected to get this at: ${
-    atTime.substr(0, 10)} ${atTime.substr(11, 8)}`
-  );
+  console.log(`Wait ${waitTime} seconds...`);
+  setTimeout(() => {
+    const diamondsNow = player.prestigePoints.toExponential();
+    const dRate = (diamondsNow - diamondsStart) / 10;
+    const secTo1e12 = (1e12 - diamondsNow) / dRate;
+    let strTo1e12 = new Date(secTo1e12 * 1000).toISOString().substr(11, 8);
+    if (secTo1e12 >= 24 * 3600) {
+      strTo1e12 = `${Math.floor(secTo1e12 / (24 * 3600))}day ${strTo1e12}`;
+    }
+    atTime = new Date(Date.now() + secTo1e12 * 1000).toLocaleString("pl-PL");
+    console.log(
+      `Average rate after ${waitTime} seconds: ${dRate.toExponential(3)} d/s`
+    );
+    console.log(`Diamonds left: ${(1e12 - diamondsNow).toExponential(3)}`);
+    console.log(`With that rate time left to 1e12 Diamonds: ${strTo1e12}`);
+    console.log(`At this rate, you are expected to get this at: ${atTime}`);
+  }, waitTime * 1000);
 };
