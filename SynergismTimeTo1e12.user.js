@@ -48,7 +48,7 @@ window.timeTo1e12Diamonds = (waitTime = 10) => {
     if (secTo1e12 >= 24 * 3600) {
       strTo1e12 = `${Math.floor(secTo1e12 / (24 * 3600))}day ${strTo1e12}`;
     }
-    atTime = new Date(Date.now() + secTo1e12 * 1000).toLocaleString("pl-PL");
+    atTime = new Date(Date.now() + secTo1e12 * 1000).toLocaleString();
     console.log(
       `Average rate after ${waitTime} seconds: ${dRate.toExponential(3)} d/s`
     );
