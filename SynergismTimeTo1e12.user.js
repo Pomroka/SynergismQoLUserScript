@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Synergism Time to 1e12 Diamonds
 // @namespace    YanTovis
-// @version      0.3
+// @version      0.3.1
 // @description  Show in console last 10 prestige using real time and time to get 1e12 diamonds.
 // @updateURL    https://github.com/Pomroka/SynergismQoLUserScript/raw/main/SynergismTimeTo1e12.user.js
 // @author       YanTovis
@@ -27,13 +27,17 @@ window.timeTo1e12Diamonds = (waitTime = 10) => {
     diamonds += d;
     prestigesTime += pT;
   }
-  const diamondsStart = player.prestigePoints.toExponential();
 
   console.log(
     `Average from last ${resetHistory.length} resets: ${(
       diamonds / prestigesTime
     ).toExponential(3)} d/s`
   );
+  const diamondsStart = player.prestigePoints.toExponential();
+  if (diamondsStart > 1e12) {
+    console.log('1e12 diamonds already reached!');
+    return;
+  }
 
   console.log(`Wait ${waitTime} seconds...`);
   setTimeout(() => {
